@@ -1,8 +1,14 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
+import 'package:genkit/plugin.dart';
 
-export 'src/genkit_google_edgeai_base.dart';
+import 'src/google_edgeai_impl.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+const GoogleEdgeAiPluginHandle edgeAi = GoogleEdgeAiPluginHandle();
+
+class GoogleEdgeAiPluginHandle {
+  const GoogleEdgeAiPluginHandle();
+
+  GenkitPlugin call() => GoogleEdgeAiPlugin();
+
+  ModelRef<GoogleEdgeAiModelOptions> model(String name) =>
+      modelRef('edgeAi/$name', customOptions: GoogleEdgeAiModelOptions.$schema);
+}
