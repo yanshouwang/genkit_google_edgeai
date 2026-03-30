@@ -28,7 +28,7 @@ abstract class $RecipeOutput {
 }
 
 void main() async {
-  final ai = Genkit(plugins: [edgeAi()]);
+  final ai = Genkit(plugins: [edgeAi(models: [])]);
   final recipeGeneratorFlow = ai.defineFlow(
     name: 'recipeGeneratorFlow',
     inputSchema: RecipeInput.$schema,
